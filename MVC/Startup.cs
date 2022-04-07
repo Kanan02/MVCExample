@@ -16,7 +16,7 @@ namespace MVC
         {
             Configuration = configuration;
         }
-
+        
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -45,10 +45,18 @@ namespace MVC
             app.UseMiddleware<CounterMiddleware>();
             app.UseRouting();
 
-          //  app.UseAuthorization();
-
+            //  app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
+                //endpoints.MapAreaControllerRoute(
+                //    name: "adminArea",
+                //    areaName:"admin",
+                //    pattern: "admin/{controller=Settings}/{action=Index}/{id?}");
+                endpoints.MapAreaControllerRoute(
+                    name: "myArea",
+                    areaName: "my",
+                    pattern: "my/{controller=Counter}/{action=Index2}/{id?}");
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

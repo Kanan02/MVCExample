@@ -27,6 +27,11 @@ namespace MVC.Controllers
         {
             return View();
         }
+        public IActionResult Results()
+        {
+            
+            return StatusCode(200);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
