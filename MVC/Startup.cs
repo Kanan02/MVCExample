@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using MVC.Middlewares;
 using MVC.Services;
 using MVC.Services.Abstract;
+using MVC.Services.Concrete;
 
 namespace MVC
 {
@@ -23,7 +24,8 @@ namespace MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSingleton<ICounterService, CounterService>();  
+            services.AddSingleton<ICounterService, CounterService>();
+            services.AddSingleton<IToDoService, ToDoService>();
 
         }
 
